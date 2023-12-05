@@ -204,6 +204,12 @@ CREATE TABLE tbl_login (
     fk_Usuario_Id INT
 );
  
+Alter table contatosite add constraint fk_contatosite_2
+foreign key (fk_tipocontato_id)
+references tipocontato(id)
+on delete cascade;
+
+
 ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_2
     FOREIGN KEY (fk_TipoUsuario_ID)
     REFERENCES TipoUsuario (ID)
@@ -257,6 +263,19 @@ ALTER TABLE login ADD CONSTRAINT FK_login_2
  select  * from sys.tables;
 
 USE ROMULLUS;
+
+
+
+
+INSERT INTO tipocontato (nome,telefone)
+VALUES ('Telefone', 'Contato via número de telefone');
+
+
+INSERT INTO Contatosite(id_tipocontato, nome, email, mensagem)
+VALUES (
+    
+
+
 
 
 insert into UF (Nome_UF , sigla_UF) values ('Brasilia', 'df'),('Acre','AC'),('Alagoas','AL'),
@@ -603,6 +622,8 @@ group by UF.Nome_UF)
 select valormediametroquadrado.Nome_UF,
 format(ROUND(valormediametroquadrado.mediametroquadrado,2),'C','pt-br') as valormediametroquadrado
 from valormediametroquadrado;
+
+create table tipocontato int PRIMARY KEY identity
 
 
 
